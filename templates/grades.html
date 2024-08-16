@@ -74,7 +74,7 @@
         </select>
         <input type="submit" name="action" value="Calculate">
     </form>
-    {% if grade and rp %}
+    {% if grade is not none and rp is not none %}
         <h4>Your Grade is {{ grade }}</h4>
         <h4>Your RP is {{ rp }}</h4>
     {% endif %}

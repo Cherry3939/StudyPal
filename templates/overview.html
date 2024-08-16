@@ -53,6 +53,9 @@
         <input type="number" id="target" name="target"><br><br>        
     </form>
     <p>Completed: {{ total_hr }} / {{ target }}</p>
-    <p>Maybe a progress bar here?</p>
+    <div class="progress_bar">
+        <label for="bar">Progress: </label>
+        <progress id="bar" value="{{ progress_value }}" max="100"> 92% </progress>
+    </div>
 </body>
 </html>

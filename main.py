@@ -97,6 +97,7 @@ def study():
 @app.route('/overview', methods=["GET", "POST"])
 def overview():
     tasks = []
+    progress_value = 0
     total_min = 0
     target = session.get('target', None)
 
@@ -116,8 +117,12 @@ def overview():
     if request.method == "POST":
         target = request.form.get("target")
         session['target'] = target
+
+    if target:
+        progress_value = 100*(total_hr/float(target))
         
-    return render_template('overview.html', tasks=tasks, target=target, total_hr=total_hr)
+    
+    return render_template('overview.html', tasks=tasks, target=target, total_hr=total_hr, progress_value=progress_value)
 
 
 if __name__ == '__main__':
@@ -126,8 +131,8 @@ if __name__ == '__main__':
 @app.route('/grades', methods=["GET", "POST"])
 def grades():
     grade_logs = []
-    grade = ""
-    rp = ""
+    grade = None
+    rp = None
     h2_rp_dict = {"A": 20, "B": 17.5, "C": 15, "D": 12.5, "E": 10, "S": 5, "U": 0}
     h1_rp_dict = {"A": 10, "B": 8.75, "C": 7.5, "D": 6.25, "E": 5, "S": 2.5, "U": 0}
     if request.method == "POST":
@@ -143,6 +148,7 @@ def grades():
             with open("grade_log.csv", "a",) as file:
                 writer = csv.writer(file)
                 writer.writerow([test_subject, exam, grade, percentage, rp])
+            return redirect(url_for('grades'))
 
         if action == "Calculate":
             marks = int(request.form.get("marks"))
@@ -166,11 +172,11 @@ def grades():
             elif h_level == "h1":
                 rp = h1_rp_dict[grade]
         
-        # file closes after with block
-        with open("grade_log.csv", "r") as file:
-            reader = csv.reader(file)
-            for row in reader:
-                grade_logs.append(row)
+    # file closes after with block
+    with open("grade_log.csv", "r") as file:
+        reader = csv.reader(file)
+        for row in reader:
+            grade_logs.append(row)
                 
     return render_template('grades.html', grade_logs=grade_logs, grade=grade, rp=rp)
 
