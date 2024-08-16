@@ -1,0 +1,45 @@
+body {
+  font-family: "Bahnschrift";
+  background-color: #EDD5B3;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.header{
+  margin: 0%;
+  text-align: center;
+  background-color: #D0A98F;
+  border: 1px solid;
+}
+
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  left: 10px; 
+}
+
+.arrow img {
+  width: 90px;
+  height: auto; 
+}
+
+table{
+  width: 80%;
+  text-align: center;
+  border: 2px, solid;
+}
+
+th{
+  background-color: #DCC5B8;
+  border: 1px solid; 
+}
+
+td{
+  background-color: #EDDCCA;
+  border: 1px dotted;
+}

@@ -1,0 +1,41 @@
+body {
+  font-family: "Bahnschrift";
+  background-color: #CAC2B5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 50px;
+  text-align: center;
+}
+
+h2{
+  text-align: center;
+}
+
+.container{
+  position: relative;
+  text-align: center
+}
+
+.container img {
+  position: relative;
+  top: -200px;
+}
+
+.login {
+  font-size: 45px;
+  position: absolute;
+  padding: 10px;
+  top: 16%;
+  left: 36%;
+}
+
+.login_button input[type="submit"] {
+  position: relative;
+  top: -50px;
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: #D0A98F;
+}

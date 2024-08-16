@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do List</title> 
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_calendar.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h3>
+            <span class="arrow">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='arrow.png') }}">
+                </a>
+            </span>
+            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
+            <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
+            <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
+            <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
+            <a href="{{ url_for('todo') }}">To Do List</a>&nbsp;&nbsp;
+            <a href="{{ url_for('grades') }}">Grades</a>&nbsp;&nbsp;
+            <form action="{{ url_for('index') }}" style="display: inline;">
+                <input type="submit" value="Logout" class="logout">
+            </form>
+        </h3>
+        <h1>To-Do List</h1>
+    </header>

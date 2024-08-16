@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Overview</title> 
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_overview.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h3>
+            <span class="arrow">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='arrow.png') }}">
+                </a>
+            </span>
+            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
+            <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
+            <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
+            <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
+            <a href="{{ url_for('todo') }}">To Do List</a>&nbsp;&nbsp;
+            <a href="{{ url_for('grades') }}">Grades</a>&nbsp;&nbsp;
+            <form action="{{ url_for('index') }}" style="display: inline;">
+                <input type="submit" value="Logout" class="logout">
+            </form>
+        </h3>
+        <h1>Overview</h1>
+    </header>
+    </div>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Duration</th>
+            <th>Subject</th>
+        </tr>
+        {% for task in tasks %}
+        <tr>
+            <td>{{ task[0] }}</td>
+            <td>{{ (task[1] // 60) }}:{{ (task[1] % 60) }}</td>
+            <td>{{ task[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Recent Subjects Studied: </h2>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task[2] }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Study Goal: </h2>
+    <form method="POST">
+        <label for="target">Target Time (Hours): </label>
+        <input type="number" id="target" name="target"><br><br>        
+    </form>
+    <p>Completed: {{ total_hr }} / {{ target }}</p>
+    <p>Maybe a progress bar here?</p>
+</body>
+</html>

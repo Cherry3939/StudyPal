@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Study</title> 
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_study.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h3>
+            <span class="arrow">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='arrow.png') }}">
+                </a>
+            </span>
+            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
+            <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
+            <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
+            <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
+            <a href="{{ url_for('todo') }}">To Do List</a>&nbsp;&nbsp;
+            <a href="{{ url_for('grades') }}">Grades</a>&nbsp;&nbsp;
+            <form action="{{ url_for('index') }}" style="display: inline;">
+                <input type="submit" value="Logout" class="logout">
+            </form>
+        </h3>
+        <h1>Study</h1>
+    </header>
+    <div class="stopwatch">
+        <img src="{{ url_for ('static', filename='carlos_study.png') }}">
+        <div class="overlay_text">
+            <h3>Start Timer</h3>
+            <div id="timer">
+                <span class="digit" id="hr">
+                    00</span>
+                <span class="txt">Hr</span>
+                <span class="digit" id="min">
+                    00</span>
+                <span class="txt">Min</span>
+                <span class="digit" id="sec">
+                    00</span>
+                <span class="txt">Sec</span>
+            </div>
+            <div id="buttons">
+                <button id="start">
+                    Start</button>
+                <button id="stop">
+                    Stop</button>
+                <button id="end">
+                    Finish Task</button>
+            </div>
+        </div>
+    </div>
+    <div class="record">
+    <h2>Study Record:</h2>
+    <form method="POST">
+        <label for="title">Title: </label>
+        <input type="text" id="title" name="title" required> <br><br>
+        <label for="duration">Duration: </label>
+        <input type="number" id="duration" name="duration" placeholder="Enter in minutes" required> <br><br>
+        <label for="subject">Subject: </label>
+        <input type="text" id="subject" name="subject" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    <script src= "{{ url_for('static', filename='timer.js') }}"></script>
+</body>
+</html>

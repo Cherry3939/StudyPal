@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>StudyPal</title>
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+</head>
+<body>
+    <h1>Sign Up Now!</h1>
+    <div class="container">
+        <img src="{{ url_for('static', filename='transparent_carlos.png') }}" alt="Study Pal Image">
+        <div class="login">
+            <form action="{{ url_for('register') }}" method="POST">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <input type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

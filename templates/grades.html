@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grades</title> 
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_grades.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h3>
+            <span class="arrow">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='arrow.png') }}">
+                </a>
+            </span>
+            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
+            <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
+            <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
+            <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
+            <a href="{{ url_for('todo') }}">To Do List</a>&nbsp;&nbsp;
+            <a href="{{ url_for('grades') }}">Grades</a>&nbsp;&nbsp;
+            <form action="{{ url_for('index') }}" style="display: inline;">
+                <input type="submit" value="Logout" class="logout">
+            </form>
+        </h3>
+        <h1>Grade Tracker</h1>
+    </header>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Exam</th>
+            <th>Grade</th>
+            <th>Percentage</th>
+            <th>RP</th>
+        </tr>
+        {% for grade in grade_logs %}
+            <tr>
+                <td>{{ grade[0] }}</td>
+                <td>{{ grade[1] }}</td>
+                <td>{{ grade[2] }}</td>
+                <td>{{ grade[3] }}</td>
+                <td>{{ grade[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form method="POST">
+        <label for="subject">Subject: </label>
+        <input type="text" id="subject" name="subject" required> <br><br>
+
+        <label for="exam">Exam: </label>
+        <input type="text" id="exam" name="exam" required> <br><br>
+        
+        <label for="grade">Grade: </label>
+        <input type="text" id="grade" name="grade" required> <br><br>
+
+        <label for="percent">Percentage: </label>
+        <input type="number" id="percent" name="percent" required><br><br>
+
+        <label for="rp">RP: </label>
+        <input type="number" id="rp" name="rp" required step=".01"> <br><br>
+        
+        <input type="submit" name="action" value="Submit">
+    </form>
+    <hr>
+    <h2>Grade Calculator</h2>
+    <form method="POST">
+        <label for="marks">Enter your score: </label>
+        <input type="number" id="marks" name="marks" required placeholder="Enter your score out of 100"><br><br>
+        <label for="h_level">H1 or H2?: </label>
+        <select id="h_level" name="h_level" required>
+          <option value="h1">H1</option>
+          <option value="h2">H2</option>
+        </select>
+        <input type="submit" name="action" value="Calculate">
+    </form>
+    {% if grade and rp %}
+        <h4>Your Grade is {{ grade }}</h4>
+        <h4>Your RP is {{ rp }}</h4>
+    {% endif %}
+</body>
+</html>

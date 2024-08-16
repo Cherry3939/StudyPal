@@ -1,0 +1,35 @@
+body {
+  font-family: "Bahnschrift";
+  background-color: #CAC2B5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+}
+
+.header{
+  margin: 0%;
+  text-align: center;
+  background-color: #D0A98F;
+  border: 1px solid;
+}
+
+.container{
+  position: relative;
+  text-align: center;
+  margin-top: 1px;
+}
+
+.container img {
+  height: 110%;
+  width: auto;
+}
+
+.overlay_text{
+  font-size: 30px;
+  position: absolute;
+  top: 10%;
+  left: 32%;
+}

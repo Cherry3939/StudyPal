@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>StudyPal</title>
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_login.css') }}">
+    <script>
+        window.onload = function() {
+            var errorMessage = "{{ error_message|safe }}";
+            if (errorMessage) {
+                setTimeout(function() {
+                    alert(errorMessage);  // 
+                }, 100); // Delay to ensure the page has loaded
+            }
+        };
+    </script>
+
+</head>
+<body>
+    <h1>Welcome to StudyPal!</h1>
+    <div class="container">
+        <img src="{{ url_for('static', filename='transparent_carlos.png') }}" alt="Study Pal Image">
+        <div class="login">
+            <form action="/" method="POST">
+                <label for="username">Username: </label>
+                <input type="text" id="username" name="username"> <br><br>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password"> <br><br>
+                <div class="login_button">
+                    <input type="submit" name="action" value="Login">
+                </div>
+                <div class="register_button">
+                    <input type="submit" name="action" value="Register">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

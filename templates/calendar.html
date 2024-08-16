@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calendar</title> 
+    <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_calendar.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h3>
+            <span class="arrow">
+                <a href="{{ url_for('home') }}">
+                    <img src="{{ url_for('static', filename='arrow.png') }}">
+                </a>
+            </span>
+            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
+            <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
+            <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
+            <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
+            <a href="{{ url_for('todo') }}">To Do List</a>&nbsp;&nbsp;
+            <a href="{{ url_for('grades') }}">Grades</a>&nbsp;&nbsp;
+            <form action="{{ url_for('index') }}" style="display: inline;">
+                <input type="submit" value="Logout" class="logout">
+            </form>
+        </h3>
+        <h1>Calendar</h1>
+    </header>
+    <div class="calendar">
+        <h1>August</h1>
+        <table>
+            <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+            </tr>
+            <tr>
+                <div class="blanked"
+                <td>   </td>
+                <td>   </td>
+                <td>   </td>
+                <td>   </td>
+                <td>   </td>
+                </div>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+            </tr>
+        </table>
+</body>
+</html>
