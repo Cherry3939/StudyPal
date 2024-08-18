@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Venue Booking</title> 
     <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_venue.css') }}">
 </head>
 <body>
     <header class="header">
@@ -14,7 +14,6 @@
                     <img src="{{ url_for('static', filename='arrow.png') }}">
                 </a>
             </span>
-            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
             <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
             <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
             <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
@@ -26,6 +25,101 @@
         </h3>
         <h1>Venue Booking</h1>
     </header>
-    <h1>working on it</h1>
+    <h2>Select a Room</h2>
+    <table>
+        <colgroup>
+            <col style="width: 65%;">
+            <col style="width: 20%;">
+            <col style="width: 10%;">
+            <col style="width: 5%;">
+        </colgroup>
+        <tr>
+            <th>Room</th>
+            <th>Info</th>
+            <th>Date</th>
+            <th>Pax</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="droom1">
+                    <img src="{{ url_for('static', filename='discussion_room_1.png') }}" alt="Room 1">
+                </div>
+                <h4>Discussion Room 1</h4>
+            </td>
+            <td>
+                <p><strong>Facilities</strong></p>
+                <ul>
+                    <li>Smart Board</li>
+                    <li>WhiteBoard</li>
+                    <li>Charging Ports</li>
+                </ul>
+                <p>Max Pax: 4</p>
+            </td>
+            <td>
+                <label for="booked_date">Date: </label>
+                <input type="date" name="booked_date"><br>
+                <label for="booked_time">Time: </label>
+                <input type="time" name="booked_time">
+            </td>
+            <td>
+                <label for="booked_pax">Pax: </label>
+                <input type="number" number="booked_pax">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="mroom1">
+                    <img src="{{ url_for('static', filename='meeting_room_1.jpg') }}" alt="Room 2">
+                </div>
+                <h4>Meeting Room 1</h4>
+            </td>
+            <td>
+                <p><strong>Facilities</strong></p>
+                <ul>
+                    <li>WhiteBoard</li>
+                    <li>Markers</li>
+                    <li>Charging Ports</li>
+                </ul>
+                <p>Max Pax: 7</p>
+            </td>
+            <td>
+                <label for="booked_date">Date: </label>
+                <input type="date" name="booked_date"><br>
+                <label for="booked_time">Time: </label>
+                <input type="time" name="booked_time">
+            </td>
+            <td>
+                <label for="booked_pax">Pax: </label>
+                <input type="number" number="booked_pax">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="droom2">
+                    <img src="{{ url_for('static', filename='discussion_room_2.jpg') }}" alt="Room 2">
+                </div>
+                <h4>Discussion Room 2</h4>
+            </td>
+            <td>
+                <p><strong>Facilities</strong></p>
+                <ul>
+                    <li>Screen</li>
+                    <li>Keyboard</li>
+                    <li>Charging Ports</li>
+                </ul>
+                <p>Max Pax: 5</p>
+            </td>
+            <td>
+                <label for="booked_date">Date: </label>
+                <input type="date" name="booked_date"><br>
+                <label for="booked_time">Time: </label>
+                <input type="time" name="booked_time">
+            </td>
+            <td>
+                <label for="booked_pax">Pax: </label>
+                <input type="number" number="booked_pax">
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

@@ -8,7 +8,6 @@
 </head>
 <body>
     <header class="header">
-        <h3><a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
             <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
             <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
             <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
@@ -24,7 +23,6 @@
         <img src="{{ url_for ('static', filename='carlos_home.png') }}">
         <div class="overlay_text">
             <h3>{{ today }}</h3>
-            <h3>Math Promos: 2 days 13 hours</h3>
             <h3>Time Studied:</h3>
             <h1>{{ display_time }}</h1>
         </div>

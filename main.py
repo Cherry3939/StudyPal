@@ -3,12 +3,14 @@ from datetime import date
 import sqlite3
 import csv
 
+
+todo_list_tasks = {}
 # im so happy javascipt isnt in the syllabus why is it so hard
 
 app = Flask(__name__)
 app.secret_key = 'abcd'
 
-def get_db_connection():
+def row_db_connection():
     conn = sqlite3.connect('account_details.db') 
     conn.row_factory = sqlite3.Row # returns rows from db as row objects, allows column access by name
     return conn
@@ -22,7 +24,7 @@ def index():
             username = request.form.get('username')
             password = request.form.get('password')
         
-            conn = get_db_connection() # start connection
+            conn = row_db_connection() # start connection
             cursor = conn.execute('SELECT * FROM userpassword WHERE username = ?', (username, )).fetchone()
             conn.commit()
             conn.close() 
@@ -75,10 +77,6 @@ def home():
     except FileNotFoundError:
         return "No records found"
     return render_template('home.html', today=today, username=username, display_time=display_time)
-
-@app.route('/calendar', methods=['POST', 'GET'])
-def calendar():
-    return render_template('calendar.html')
 
 @app.route('/study', methods=['POST', 'GET'])
 def study():
@@ -184,6 +182,18 @@ def grades():
 def venue():
     return render_template('venue.html')
 
-@app.route('/todo')
+@app.route('/todo', methods=["GET", "POST"])
 def todo():
-    return render_template('todo.html')
+    # file closes after with block
+    if request.method == "POST":
+        action = request.form.get('action')
+        if action == "Add Task":
+            task_name = request.form.get("task_name")
+            task_subject = request.form.get("subject_name")
+            due_date = request.form.get("due_date")
+            todo_list_tasks[task_name] = [task_subject, due_date]
+        if action == "Complete Task":
+            completed_task_name = request.form.get("completed_task")
+            if completed_task_name is not None:
+                del todo_list_tasks[completed_task_name]
+    return render_template('todo.html', todo_list_tasks=todo_list_tasks)

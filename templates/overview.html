@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+         <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,6 @@
                     <img src="{{ url_for('static', filename='arrow.png') }}">
                 </a>
             </span>
-            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
             <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
             <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
             <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
@@ -55,7 +54,10 @@
     <p>Completed: {{ total_hr }} / {{ target }}</p>
     <div class="progress_bar">
         <label for="bar">Progress: </label>
-        <progress id="bar" value="{{ progress_value }}" max="100"> 92% </progress>
+        <div class="progress_container">
+            <div class="progress_fill" style="width: {{ progress_value }}%;"></div>
+        </div>
     </div>
+
 </body>
 </html>

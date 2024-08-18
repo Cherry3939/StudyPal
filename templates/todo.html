@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>To-Do List</title> 
     <link rel="icon" href="{{ url_for('static', filename='carlos_icon.png') }}" type="image/x-icon")}}>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style_calendar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_todo.css') }}">
 </head>
 <body>
     <header class="header">
@@ -14,7 +14,6 @@
                     <img src="{{ url_for('static', filename='arrow.png') }}">
                 </a>
             </span>
-            <a href="{{ url_for('calendar') }}">Calendar</a>&nbsp;&nbsp;
             <a href="{{ url_for('venue') }}">Venue Booking</a>&nbsp;&nbsp;
             <a href="{{ url_for('study') }}">Study</a>&nbsp;&nbsp;
             <a href="{{ url_for('overview') }}">Overview</a>&nbsp;&nbsp;
@@ -26,6 +25,48 @@
         </h3>
         <h1>To-Do List</h1>
     </header>
-    <h1>working on it</h1>
+    <h2>Enter your tasks here!</h2>
+    <div class="todo_list" id="todo_list">
+        <form method = "POST">
+            <label for="task_name">Enter Task: </label>
+            <input type="text" name="task_name" id="task_name" required> <br><br>
+            <label for="task_subject">Enter Task Subject: </label>
+            <input type="text" name="subject_name" id="subject_name" required> <br><br>
+            <label for="due_date">Enter Due Date: </label>
+            <input type="date" name="due_date" id="due_date" required> <br><br>
+            <input type="submit" value="Add Task" name="action" id="add_task">
+        </form>
+        <form method="POST">   
+            <ol id="task_list">
+                {% for task, details in todo_list_tasks.items() %}
+                    <li>
+                        <label for="task_{{ loop.index }}">{{ task }}: </label>
+                        <input type="checkbox" name="completed_task" value="{{ task }}" id="task_{{ loop.index }}">
+                        <div class="dropdown">
+                            <button type="button" onclick="toggleDropdown('{{ loop.index }}')">+</button>
+                            <div class="dropdown-content" id="dropdown-content-{{ loop.index }}">
+                                <ul>
+                                    <li><a href="#">{{ details[0] }}</a></li>
+                                    <li><a href="#">{{ details[1] }}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ol>
+            <input type="submit" value="Complete Task" name="action">
+        </form>
+
+        <script>
+            function toggleDropdown(index) {
+                var dropdownContent = document.getElementById("dropdown-content-" + index);
+                if (dropdownContent.style.display === "block") {
+                    dropdownContent.style.display = "none";
+                } else {
+                    dropdownContent.style.display = "block";
+                }
+            }
+        </script>
+
 </body>
 </html>

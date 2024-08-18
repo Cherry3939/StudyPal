@@ -11,7 +11,7 @@
             if (errorMessage) {
                 setTimeout(function() {
                     alert(errorMessage);  // 
-                }, 100); // Delay to ensure the page has loaded
+                }, 100); 
             }
         };
     </script>
@@ -27,6 +27,7 @@
                 <input type="text" id="username" name="username"> <br><br>
                 <label for="password">Password: </label>
                 <input type="password" id="password" name="password"> <br><br>
+            <div class="button_container">
                 <div class="login_button">
                     <input type="submit" name="action" value="Login">
                 </div>
@@ -34,6 +35,7 @@
                     <input type="submit" name="action" value="Register">
                 </div>
             </form>
+            </div>
         </div>
     </div>
 </body>

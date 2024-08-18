@@ -28,8 +28,9 @@ h1 {
 }
 
 .overlay_text{
-  font-size: 30px;
+  font-size: 45px;
   position: absolute;
-  top: 10%;
-  left: 32%;
+  top: 15%;
+  left: 37%;
 }
+

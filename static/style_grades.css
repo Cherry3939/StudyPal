@@ -29,7 +29,8 @@ h1 {
 }
 
 table{
-  width: 80%;
+  margin-left: 5%;
+  width: 90%;
   text-align: center;
   border: 2px, solid;
 }
